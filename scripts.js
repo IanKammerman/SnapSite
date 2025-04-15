@@ -113,13 +113,6 @@ class ChampionsCatalog {
 
 const championsArray = [
   new Champion(
-    2004,
-    "Porto",
-    "https://upload.wikimedia.org/wikipedia/en/f/f1/FC_Porto.svg",
-    ["Carlos Alberto", "Bosingwa", "Ricardo Carvalho"],
-    "Portugal"
-  ),
-  new Champion(
     2005,
     "Liverpool",
     "https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg",
