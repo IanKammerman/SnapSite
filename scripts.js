@@ -214,7 +214,7 @@ const championsArray = [
   new Champion(
     2018,
     "Real Madrid",
-    "https://upload.wikimedia.org/wikipedia/en/1/15/Real_Madrid_CF.svg",
+    "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
     ["Cristiano Ronaldo", "Sergio Ramos", "Luka Modric"],
     "Spain"
   ),
@@ -242,7 +242,7 @@ const championsArray = [
   new Champion(
     2022,
     "Real Madrid",
-    "https://upload.wikimedia.org/wikipedia/en/1/15/Real_Madrid_CF.svg",
+    "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
     ["Vinicius Junior", "Federico Valverde", "Thibaut Courtois"],
     "Spain"
   ),
@@ -256,7 +256,7 @@ const championsArray = [
   new Champion(
     2024,
     "Real Madrid",
-    "https://upload.wikimedia.org/wikipedia/en/1/15/Real_Madrid_CF.svg",
+    "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
     ["Vinicius Junior", "Federico Valverde", "Thibaut Courtois"],
     "Spain"
   )
