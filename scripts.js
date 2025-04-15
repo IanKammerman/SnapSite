@@ -268,26 +268,19 @@ function showLast5Champions() {
   currentDisplayCount = 5;
   showCurrentSubset();
 }
+window.showLast5Champions = showLast5Champions;
 
 function showLast10Champions() {
   currentDisplayCount = 10;
   showCurrentSubset();
 }
-
-
-function showAllChampions() {
-  // If you know it’s always 20, you could use 20, 
-  // but a more general solution is to just set it to the full length:
-  currentDisplayCount = catalog.champions.length; 
-  showCurrentSubset();
-}
-
+window.showLast10Champions = showLast10Champions;
 
 function showAllChampions() {
   currentDisplayCount = catalog.champions.length; 
   showCurrentSubset();
 }
-
+window.showAllChampions = showAllChampions;
 
 document.addEventListener("DOMContentLoaded", () => {
   catalog.render("card-container");
@@ -305,6 +298,7 @@ function addChampionToDisplay() {
     alert("All champions are already displayed.");
   }
 }
+window.addChampionToDisplay = addChampionToDisplay;
 
 function filterByNation() {
   const nationInput = document.getElementById("nationInput").value;
@@ -322,6 +316,7 @@ function filterByNation() {
     catalog.render("card-container", catalog.champions);
   }
 }
+window.filterByNation = filterByNation;
 
 function removeChampionFromDisplay() {
   if (currentDisplayCount > 1) {
@@ -331,7 +326,7 @@ function removeChampionFromDisplay() {
     alert("At least one champion must be displayed.");
   }
 }
-
+window.removeChampionFromDisplay = removeChampionFromDisplay;
 
 /** 
 
