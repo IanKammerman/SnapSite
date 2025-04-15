@@ -44,7 +44,6 @@ class Champion {
       const templateCard = document.querySelector(".card");
       const card = templateCard.cloneNode(true);
       card.style.display = "block";
-      console.log("RenderCard in champion class called");
 
   
       const header = card.querySelector("h2");
@@ -100,7 +99,6 @@ class ChampionsCatalog {
   }
 
   filterByNation(nation) {
-    console.log("FilterByNation in ChampionsCatalog called");
     return this.champions.filter(champ => champ.nation.toLowerCase() === nation.toLowerCase());
   }
 
@@ -272,7 +270,6 @@ function showLast5Champions() {
 
 function showLast10Champions() {
   currentDisplayCount = 10;
-  console.log("showLast10champions called function");
 
   showCurrentSubset();
 }
