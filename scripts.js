@@ -272,6 +272,8 @@ function showLast5Champions() {
 
 function showLast10Champions() {
   currentDisplayCount = 10;
+  console.log("showLast10champions called function");
+
   showCurrentSubset();
 }
 
