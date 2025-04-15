@@ -27,6 +27,10 @@
 
 let currentDisplayCount = 0;
 
+/**
+ * Champion class 
+ * stores relevant information to each champion
+ */
 class Champion {
   constructor(year, team, logo, players, nation){
     this.year = year
@@ -34,12 +38,14 @@ class Champion {
     this.logo = logo;
     this.players = players;
     this.nation = nation;
-    }
+    } 
 
     renderCard() {
       const templateCard = document.querySelector(".card");
       const card = templateCard.cloneNode(true);
       card.style.display = "block";
+      console.log("RenderCard in champion class called");
+
   
       const header = card.querySelector("h2");
       header.textContent = `${this.year} - ${this.team}`;
@@ -63,11 +69,11 @@ class Champion {
 /**
  * ChampionsCatalog manages a fixed array of Champion objects.
  * All 20 champions are preloaded into the code.
- * It provides methods to sort the data and return a subset of the champions.
+ * It provides methods to pick how many to display, add or remove, and sort by nation
  */
 class ChampionsCatalog {
   constructor(champions) {
-    this.champions = champions; //Array of obj
+    this.champions = champions;
   }
   
   sortChronologically() {
@@ -94,6 +100,7 @@ class ChampionsCatalog {
   }
 
   filterByNation(nation) {
+    console.log("FilterByNation in ChampionsCatalog called");
     return this.champions.filter(champ => champ.nation.toLowerCase() === nation.toLowerCase());
   }
 
@@ -111,6 +118,7 @@ class ChampionsCatalog {
   }
 }
 
+//Pre-loaded data 
 const championsArray = [
   new Champion(
     2005,
@@ -315,69 +323,3 @@ function removeChampionFromDisplay() {
     alert("At least one champion must be displayed.");
   }
 }
-window.removeChampionFromDisplay = removeChampionFromDisplay;
-
-/** 
-
-
-// Your final submission should have much more data than this, and
-// you should use more than just an array of strings to store it all.
-
-// This function adds cards the page to display the data in the array
-function showCards() {
-  const cardContainer = document.getElementById("card-container");
-  cardContainer.innerHTML = "";
-  const templateCard = document.querySelector(".card");
-
-  for (let i = 0; i < titles.length; i++) {
-    let title = titles[i];
-
-    // This part of the code doesn't scale very well! After you add your
-    // own data, you'll need to do something totally different here.
-    let imageURL = "";
-    if (i == 0) {
-      imageURL = FRESH_PRINCE_URL;
-    } else if (i == 1) {
-      imageURL = CURB_POSTER_URL;
-    } else if (i == 2) {
-      imageURL = EAST_LOS_HIGH_POSTER_URL;
-    }
-
-    const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageURL); // Edit title and image
-    cardContainer.appendChild(nextCard); // Add new card to the container
-  }
-}
-
-function editCardContent(card, newTitle, newImageURL) {
-  card.style.display = "block";
-
-  const cardHeader = card.querySelector("h2");
-  cardHeader.textContent = newTitle;
-
-  const cardImage = card.querySelector("img");
-  cardImage.src = newImageURL;
-  cardImage.alt = newTitle + " Poster";
-
-  // You can use console.log to help you debug!
-  // View the output by right clicking on your website,
-  // select "Inspect", then click on the "Console" tab
-  console.log("new card:", newTitle, "- html: ", card);
-}
-
-// This calls the addCards() function when the page is first loaded
-document.addEventListener("DOMContentLoaded", showCards);
-
-function quoteAlert() {
-  console.log("Button Clicked!");
-  alert(
-    "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!"
-  );
-}
-
-function removeLastCard() {
-  titles.pop(); // Remove last item in titles array
-  showCards(); // Call showCards again to refresh
-}
-
-*/
