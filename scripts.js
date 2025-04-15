@@ -23,6 +23,94 @@
  *
  */
 
+// Data is posted under classes, scroll below the Champion and Champion Catalog classes to see the data
+
+class Champion {
+  constructor(year, team, logo, players, nation){
+    this.year = year
+    this.team = team;
+    this.logo = logo;
+    this.players = players;
+    this.nation = nation;
+    }
+
+    renderCard() {
+      const templateCard = document.querySelector(".card");
+      const card = templateCard.cloneNode(true);
+      card.style.display = "block";
+  
+      // Set header: display "year - team"
+      const header = card.querySelector("h2");
+      header.textContent = `${this.year} - ${this.team}`;
+  
+      // Set the team logo
+      const cardImage = card.querySelector("img");
+      cardImage.src = this.logo;
+      cardImage.alt = `${this.team} Logo`;
+  
+      // Populate the players list
+      const playersList = card.querySelector("ul");
+      playersList.innerHTML = "";
+      this.players.forEach(player => {
+        const li = document.createElement("li");
+        li.textContent = player;
+        playersList.appendChild(li);
+      });
+  
+      return card;
+    }
+  }
+
+  /**
+ * ChampionsCatalog manages a fixed array of Champion objects.
+ * All 20 champions are preloaded into the code.
+ * It provides methods to sort the data and return a subset of the champions.
+ */
+class ChampionsCatalog {
+  constructor(champions) {
+    this.champions = champions; //Array of obj
+  }
+  
+  sortChronologically() {
+    this.champions.sort((a, b) => a.year - b.year);
+  }
+
+  addChampion(champion) {
+    if (this.champions.length < 20) {
+      this.champions.push(champion);
+      this.sortChronologically();
+    } else {
+      alert("Maximum number of champions reached.");
+    }
+  }
+
+  removeChampion(year) {
+    const idx = this.champions.findIndex(champ => champ.year === year);
+    if (idx !== -1) {
+      this.champions.splice(idx, 1);
+      alert(`Champion for year ${year} removed.`);
+    } else {
+      alert(`No champion found for the year ${year}.`);
+    }
+  }
+
+  filterByNation(nation) {
+    return this.champions.filter(champ => champ.nation.toLowerCase() === nation.toLowerCase());
+  }
+
+  getLastChampions(n) {
+    return this.champions.slice(-n);
+  }
+  
+  render(containerID, championsArray = this.champions) {
+    const container = document.getElementById(containerID);
+    container.innerHTML = "";
+    championsArray.forEach(champion => {
+      const card = champion.renderCard();
+      container.appendChild(card);
+    });
+  }
+}
 
 const championsArray = [
   new Champion(
@@ -173,94 +261,6 @@ const championsArray = [
     "Spain"
   )
 ];
-
-
-class Champion {
-  constructor(year, team, logo, players, nation){
-    this.year = year
-    this.team = team;
-    this.logo = logo;
-    this.players = players;
-    this.nation = nation;
-    }
-
-    renderCard() {
-      const templateCard = document.querySelector(".card");
-      const card = templateCard.cloneNode(true);
-      card.style.display = "block";
-  
-      // Set header: display "year - team"
-      const header = card.querySelector("h2");
-      header.textContent = `${this.year} - ${this.team}`;
-  
-      // Set the team logo
-      const cardImage = card.querySelector("img");
-      cardImage.src = this.logo;
-      cardImage.alt = `${this.team} Logo`;
-  
-      // Populate the players list
-      const playersList = card.querySelector("ul");
-      playersList.innerHTML = "";
-      this.players.forEach(player => {
-        const li = document.createElement("li");
-        li.textContent = player;
-        playersList.appendChild(li);
-      });
-  
-      return card;
-    }
-  }
-
-  /**
- * ChampionsCatalog manages a fixed array of Champion objects.
- * All 20 champions are preloaded into the code.
- * It provides methods to sort the data and return a subset of the champions.
- */
-class ChampionsCatalog {
-  constructor(champions) {
-    this.champions = champions; //Array of obj
-  }
-  
-  sortChronologically() {
-    this.champions.sort((a, b) => a.year - b.year);
-  }
-
-  addChampion(champion) {
-    if (this.champions.length < 20) {
-      this.champions.push(champion);
-      this.sortChronologically();
-    } else {
-      alert("Maximum number of champions reached.");
-    }
-  }
-
-  removeChampion(year) {
-    const idx = this.champions.findIndex(champ => champ.year === year);
-    if (idx !== -1) {
-      this.champions.splice(idx, 1);
-      alert(`Champion for year ${year} removed.`);
-    } else {
-      alert(`No champion found for the year ${year}.`);
-    }
-  }
-
-  filterByNation(nation) {
-    return this.champions.filter(champ => champ.nation.toLowerCase() === nation.toLowerCase());
-  }
-
-  getLastChampions(n) {
-    return this.champions.slice(-n);
-  }
-  
-  render(containerID, championsArray = this.champions) {
-    const container = document.getElementById(containerID);
-    container.innerHTML = "";
-    championsArray.forEach(champion => {
-      const card = champion.renderCard();
-      container.appendChild(card);
-    });
-  }
-}
 
 const catalog = new ChampionsCatalog(championsArray);
 catalog.sortChronologically();
