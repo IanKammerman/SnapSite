@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Champions League Winners!| Home</title>
-    <meta name="description" content="A Catalog of Champions League Winners from the last 20 years  " />
+    <title>Champions League Winners! | Home</title>
+    <meta name="description" content="A Catalog of Champions League Winners" />
     <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
+    <script src="scripts.js" defer></script>
   </head>
-
   <body>
     <header class="main-header">
       <h1 class="title">Champions League Winners!</h1>
     </header>
-    <div id="card-container"></div>
-    <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="Team logo" />
-        <ul>
-          <li>Player 1</li>
-          <li>Player 2</li>
-          <li>Player 3</li>
-        </ul>
-      </div>
-    </div>
+    <main>
+      <!-- Container where champion cards will be rendered -->
+      <div id="card-container"></div>
 
-    <div class="footer">
+      <!-- Hidden template card to be cloned -->
+      <div class="card" style="display: none">
+        <div class="card-content">
+          <h2>Year - Team</h2>
+          <img src="" alt="Team Logo" />
+          <ul>
+            <li>Player 1</li>
+            <li>Player 2</li>
+            <li>Player 3</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
       <button onclick="showLastChampions(5);">Show Last 5 Champions</button>
       <button onclick="showLastChampions(10);">Show Last 10 Champions</button>
       <button onclick="catalog.render('card-container');">Show All Champions</button>
       <button onclick="filterByNationPrompt();">Filter by Nation</button>
-      <button onclick="addChampionPrompt();">Add Year</button>
-      <button onclick="removeChampionPrompt();">Remove Year</button>
-    </div>
+      <button onclick="addChampionPrompt();">Add Champion</button>
+      <button onclick="removeChampionPrompt();">Remove Champion</button>
+    </footer>
   </body>
 </html>
