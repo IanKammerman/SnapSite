@@ -60,7 +60,7 @@ class Champion {
     }
   }
 
-  /**
+/**
  * ChampionsCatalog manages a fixed array of Champion objects.
  * All 20 champions are preloaded into the code.
  * It provides methods to sort the data and return a subset of the champions.
@@ -261,19 +261,16 @@ function showLast5Champions() {
   currentDisplayCount = 5;
   showCurrentSubset();
 }
-window.showLast5Champions = showLast5Champions;
 
 function showLast10Champions() {
   currentDisplayCount = 10;
   showCurrentSubset();
 }
-window.showLast10Champions = showLast10Champions;
 
 function showAllChampions() {
   currentDisplayCount = catalog.champions.length; 
   showCurrentSubset();
 }
-window.showAllChampions = showAllChampions;
 
 document.addEventListener("DOMContentLoaded", () => {
   catalog.render("card-container");
@@ -291,7 +288,6 @@ function addChampionToDisplay() {
     alert("All champions are already displayed.");
   }
 }
-window.addChampionToDisplay = addChampionToDisplay;
 
 function filterByNation() {
   const nationInput = document.getElementById("nationInput").value;
