@@ -116,7 +116,7 @@ const championsArray = [
   new Champion(
     2004,
     "Porto",
-    "https://upload.wikimedia.org/wikipedia/commons/5/5e/F.C._Porto.svg",
+    "https://upload.wikimedia.org/wikipedia/en/f/f1/FC_Porto.svg",
     ["Carlos Alberto", "Bosingwa", "Ricardo Carvalho"],
     "Portugal"
   ),
@@ -137,7 +137,7 @@ const championsArray = [
   new Champion(
     2007,
     "AC Milan",
-    "https://upload.wikimedia.org/wikipedia/en/0/03/AC_Milan.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/d/d0/Logo_of_AC_Milan.svg",
     ["Filippo Inzaghi", "Kaka", "Paolo Maldini"],
     "Italy"
   ),
@@ -158,7 +158,7 @@ const championsArray = [
   new Champion(
     2010,
     "Inter Milan",
-    "https://upload.wikimedia.org/wikipedia/en/0/05/Inter_Milan_Logo.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/0/05/FC_Internazionale_Milano_2021.svg",
     ["Javier Zanetti", "Wesley Sneijder", "Samuel Eto'o"],
     "Italy"
   ),
@@ -179,14 +179,14 @@ const championsArray = [
   new Champion(
     2013,
     "Bayern Munich",
-    "https://upload.wikimedia.org/wikipedia/en/1/1f/FC_Bayern_München_logo_%282017%29.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/8/8d/FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg",
     ["Philipp Lahm", "Manuel Neuer", "Franck Ribery"],
     "Germany"
   ),
   new Champion(
     2014,
     "Real Madrid",
-    "https://upload.wikimedia.org/wikipedia/en/1/15/Real_Madrid_CF.svg",
+    "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
     ["Cristiano Ronaldo", "Sergio Ramos", "Iker Casillas"],
     "Spain"
   ),
@@ -200,14 +200,14 @@ const championsArray = [
   new Champion(
     2016,
     "Real Madrid",
-    "https://upload.wikimedia.org/wikipedia/en/1/15/Real_Madrid_CF.svg",
+    "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
     ["Cristiano Ronaldo", "Sergio Ramos", "Iker Casillas"],
     "Spain"
   ),
   new Champion(
     2017,
     "Real Madrid",
-    "https://upload.wikimedia.org/wikipedia/en/1/15/Real_Madrid_CF.svg",
+    "https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg",
     ["Cristiano Ronaldo", "Sergio Ramos", "Luka Modric"],
     "Spain"
   ),
