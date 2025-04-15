@@ -9,6 +9,9 @@
   <body>
     <header class="main-header">
       <h1 class="title">Champions League Winners!</h1>
+      <label for="nationInput">Filter by Nation:</label>
+      <input type="text" id="nationInput" placeholder="Enter nation" />
+      <button onclick="filterByNation();">Filter</button>
     </header>
     <main>
       <div id="card-container"></div>
@@ -27,12 +30,11 @@
       </div>
     </main>
     <footer class="footer">
-      <button onclick="showLastChampions(5);">Show Last 5 Champions</button>
-      <button onclick="showLastChampions(10);">Show Last 10 Champions</button>
-      <button onclick="catalog.render('card-container');">Show All Champions</button>
-      <button onclick="filterByNationPrompt();">Filter by Nation</button>
-      <button onclick="addChampionPrompt();">Add Champion</button>
-      <button onclick="removeChampionPrompt();">Remove Champion</button>
+      <button onclick="showLast5Champions();">Show Last 5 Champions</button>
+      <button onclick="showLast10Champions();">Show Last 10 Champions</button>
+      <button onclick="showAllChampions();">Show All Champions</button>      
+      <button onclick="addChampionToDisplay();">Add Champion to Display</button>
+      <button onclick="removeChampionFromDisplay();">Remove Champion from Display</button>
     </footer>
   </body>
 </html>

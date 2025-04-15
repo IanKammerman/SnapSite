@@ -25,6 +25,8 @@
 
 // Data is posted under classes, scroll below the Champion and Champion Catalog classes to see the data
 
+let currentDisplayCount = 0;
+
 class Champion {
   constructor(year, team, logo, players, nation){
     this.year = year
@@ -39,16 +41,13 @@ class Champion {
       const card = templateCard.cloneNode(true);
       card.style.display = "block";
   
-      // Set header: display "year - team"
       const header = card.querySelector("h2");
       header.textContent = `${this.year} - ${this.team}`;
   
-      // Set the team logo
       const cardImage = card.querySelector("img");
       cardImage.src = this.logo;
       cardImage.alt = `${this.team} Logo`;
-  
-      // Populate the players list
+
       const playersList = card.querySelector("ul");
       playersList.innerHTML = "";
       this.players.forEach(player => {
@@ -228,7 +227,7 @@ const championsArray = [
   new Champion(
     2020,
     "Bayern Munich",
-    "https://upload.wikimedia.org/wikipedia/en/1/1f/FC_Bayern_München_logo_%282017%29.svg",
+    "https://upload.wikimedia.org/wikipedia/commons/8/8d/FC_Bayern_M%C3%BCnchen_logo_%282024%29.svg",
     ["Robert Lewandowski", "Manuel Neuer", "Joshua Kimmich"],
     "Germany"
   ),
@@ -265,15 +264,74 @@ const championsArray = [
 const catalog = new ChampionsCatalog(championsArray);
 catalog.sortChronologically();
 
+function showLast5Champions() {
+  currentDisplayCount = 5;
+  showCurrentSubset();
+}
+
+function showLast10Champions() {
+  currentDisplayCount = 10;
+  showCurrentSubset();
+}
+
+
+function showAllChampions() {
+  // If you know it’s always 20, you could use 20, 
+  // but a more general solution is to just set it to the full length:
+  currentDisplayCount = catalog.champions.length; 
+  showCurrentSubset();
+}
+
+
+function showAllChampions() {
+  currentDisplayCount = catalog.champions.length; 
+  showCurrentSubset();
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
   catalog.render("card-container");
 });
 
-// Function to display a subset of champions: e.g., last 5, 10, or all.
-function showLastChampions(n) {
-  const subset = catalog.getLastChampions(n);
-  catalog.render("card-container", subset);
+function showCurrentSubset() {
+  catalog.render("card-container", catalog.champions.slice(0, currentDisplayCount));
 }
+
+function addChampionToDisplay() {
+  if (currentDisplayCount < catalog.champions.length) {
+    currentDisplayCount++;
+    showCurrentSubset();
+  } else {
+    alert("All champions are already displayed.");
+  }
+}
+
+function filterByNation() {
+  const nationInput = document.getElementById("nationInput").value;
+  
+  if (nationInput && nationInput.trim() !== "") {
+    const filteredChampions = catalog.filterByNation(nationInput);
+    
+    if (filteredChampions.length > 0) {
+      catalog.render("card-container", filteredChampions);
+    } else {
+      alert("No champions found from that nation.");
+      catalog.render("card-container", []);
+    }
+  } else {
+    catalog.render("card-container", catalog.champions);
+  }
+}
+
+function removeChampionFromDisplay() {
+  if (currentDisplayCount > 1) {
+    currentDisplayCount--;
+    showCurrentSubset();
+  } else {
+    alert("At least one champion must be displayed.");
+  }
+}
+
 
 /** 
 
