@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Champions League Winners! | Home</title>
+    <title>20 Most Recent Champions League Winners! | Home</title>
     <meta name="description" content="A Catalog of Champions League Winners" />
     <link rel="stylesheet" href="style.css" />
     <script src="scripts.js" defer></script>
@@ -9,18 +9,14 @@
   <body>
     <header class="main-header">
       <h1 class="title">Champions League Winners!</h1>
-      <label for="nationInput">Filter by Nation:</label>
-      <input type="text" id="nationInput" placeholder="Enter nation" />
-      <button onclick="filterByNation();">Filter</button>
     </header>
     <main>
       <div id="card-container"></div>
-
       <div class="card" style="display: none">
         <div class="card-content">
           <h2>Year - Team</h2>
           <img src="" alt="Team Logo" />
-          <body>Three Key Players:</body>
+          <div>Three Key Players:</div>
           <ul>
             <li>Player 1</li>
             <li>Player 2</li>
@@ -30,11 +26,18 @@
       </div>
     </main>
     <footer class="footer">
-      <button onclick="showLast5Champions();">Show Last 5 Champions</button>
-      <button onclick="showLast10Champions();">Show Last 10 Champions</button>
+      <button onclick="showLast5Champions();">Show First 5 Champions</button>
+      <button onclick="showLast10Champions();">Show First 10 Champions</button>
       <button onclick="showAllChampions();">Show All Champions</button>      
       <button onclick="addChampionToDisplay();">Add Champion to Display</button>
       <button onclick="removeChampionFromDisplay();">Remove Champion from Display</button>
+      
+      <!-- Moved filter by nation controls to the bottom -->
+      <div class="filter-section" style="margin-top: 10px;">
+        <label for="nationInput">Filter by Nation:</label>
+        <input type="text" id="nationInput" placeholder="Enter nation" />
+        <button onclick="filterByNation();">Filter</button>
+      </div>
     </footer>
   </body>
 </html>
